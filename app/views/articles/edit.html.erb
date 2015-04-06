@@ -1,0 +1,18 @@
+<h1>Edit Article</h1>
+<%= form_for :article , url: "/articles/#{@i_id}" do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+
+  <p>
+    <%= f.submit :onclick => "return confirm('Are you sure to update?')" %>
+  </p>
+
+<% end %>
+

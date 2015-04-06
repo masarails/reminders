@@ -1,0 +1,28 @@
+<%= stylesheet_link_tag "table.css" %>
+ 
+<div class="caption">Articles</div>
+<div class="caption"><%= link_to 'Add new article', new_article_path %></div>
+<div id="table">
+	<div class="header-row row">
+    <span class="cell primary">Title</span>
+    <span class="cell">Text</span>
+    <span class="cell">Delete</span>
+    <span class="cell">Edit</span>
+  </div>
+
+  <% @articles.each do |article| %>
+
+  <div class="row">
+        <input type="radio" name="expand">
+    <span class="cell primary" data-label="Vehicle"><%= article.title %></span>
+    <span class="cell" data-label="Exterior"><%= article.text %></span>
+     <span class="cell" data-label="Interior"><%= link_to 'Delete', "/articles/#{article.id}", :method => 'delete',data: { confirm: 'Are you sure?' }%></span>
+     <span class="cell" data-label="Interior"><%= link_to 'Edit', "/articles/#{article.id}/edit"%></span>
+  </div>
+  
+
+
+
+  <% end %>
+  </div>
+
